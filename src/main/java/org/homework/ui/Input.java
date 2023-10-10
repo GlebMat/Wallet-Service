@@ -8,7 +8,18 @@ import org.homework.exeption.UniquIdExeption;
 
 import java.util.Scanner;
 
+/**
+ * Класс Input представляет консольное приложение для управления кредитными/дебетовыми транзакциями игроков.
+ * Пользователи могут зарегистрироваться, авторизоваться, просматривать баланс, выполнять дебетовые и кредитные транзакции,
+ * а также просматривать историю транзакций.
+ */
 public class Input {
+    /**
+     * Точка входа в приложение. Создает объекты Scanner, ClientsDataBase и Client,
+     * а затем запускает процесс авторизации и управления транзакциями.
+     *
+     * @param args аргументы командной строки (не используются).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ClientsDataBase clientsDataBase = new ClientsDataBase();
@@ -21,6 +32,13 @@ public class Input {
 
     }
 
+    /**
+     * Регистрирует нового игрока путем запроса имени пользователя и пароля через консольный ввод.
+     * После успешной регистрации выводит сообщение об успешной регистрации.
+     *
+     * @param scanner         объект Scanner для чтения ввода пользователя.
+     * @param clientsDataBase объект ClientsDataBase для хранения зарегистрированных игроков.
+     */
     public static void register(Scanner scanner, ClientsDataBase clientsDataBase) {
         System.out.println("Введите имя пользователя:");
         String clientName = scanner.nextLine();
@@ -30,6 +48,14 @@ public class Input {
         System.out.println("Регистрация прошла успешно!");
     }
 
+    /**
+     * Позволяет игроку авторизоваться, запрашивая имя пользователя и пароль через консольный ввод.
+     * После успешной авторизации возвращает объект клиента, иначе выводит сообщение об ошибке.
+     *
+     * @param scanner         объект Scanner для чтения ввода пользователя.
+     * @param clientsDataBase объект ClientsDataBase для проверки учетных данных игрока.
+     * @return объект Client, представляющий авторизованного игрока, или null в случае ошибки.
+     */
     public static Client login(Scanner scanner, ClientsDataBase clientsDataBase) {
         String clientName = scanner.nextLine();
         String clientPass = scanner.nextLine();
@@ -46,14 +72,22 @@ public class Input {
         return activeClient;
     }
 
-    public static void sesions(Client client, boolean flag, Scanner scanner) {
+    /**
+     * Позволяет авторизованному игроку выполнять различные действия, такие как дебетовые и кредитные транзакции,
+     * просмотр баланса и истории транзакций. Выходит из этой сессии, когда игрок выбирает опцию "Выйти".
+     *
+     * @param client       авторизованный игрок.
+     * @param shouldLogout флаг, указывающий, продолжать ли сессию.
+     * @param scanner      объект Scanner для чтения ввода пользователя.
+     */
+    public static void sesions(Client client, boolean shouldLogout, Scanner scanner) {
         System.out.println("Выберите действие:");
         System.out.println("1 - Дебет");
         System.out.println("2 - Кредит");
         System.out.println("3 - Баланс");
         System.out.println("4 - История транзакций");
         System.out.println("0 - Выйти");
-        while (flag) {
+        while (shouldLogout) {
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
@@ -92,7 +126,7 @@ public class Input {
 
                     break;
                 case 0:
-                    flag = false;
+                    shouldLogout = false;
                     break;
                 default:
                     System.out.println("Введите одну из комманд: debit, credit, balance, history, logout");
@@ -101,6 +135,16 @@ public class Input {
         }
     }
 
+    /**
+     * Позволяет пользователям регистрироваться или авторизовываться и управлять своими транзакциями.
+     * Выходит из приложения, когда пользователь выбирает опцию "Выход".
+     *
+     * @param shouldExit      флаг, указывающий, завершить ли приложение.
+     * @param scanner         объект Scanner для чтения ввода пользователя.
+     * @param clientsDataBase объект ClientsDataBase для управления пользователями.
+     * @param client          объект Client для хранения текущего пользователя.
+     * @param checkLogin      флаг, указывающий, авторизован ли текущий пользователь.
+     */
     public static void verifyClient(boolean shouldExit, Scanner scanner, ClientsDataBase clientsDataBase, Client client, boolean checkLogin) {
         while (shouldExit) {
             System.out.println("Добрый день! Выберите действие:");

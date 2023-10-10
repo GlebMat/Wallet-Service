@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/TypeTransaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/exeption/AutorizationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/exeption/BigDebetException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/exeption/UniquIdExeption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/ClientsDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/ClientsDataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/IdTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/IdTransaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/TypeTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/TypeTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/exeption/AutorizationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/exeption/AutorizationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/exeption/BigDebetException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/exeption/BigDebetException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/exeption/UniquIdExeption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/exeption/UniquIdExeption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +124,7 @@
       <option name="presentableId" value="Default" />
       <updated>1696861711252</updated>
       <workItem from="1696861713830" duration="16335000" />
-      <workItem from="1696911990767" duration="21023000" />
+      <workItem from="1696911990767" duration="22331000" />
     </task>
     <servers />
   </component>
