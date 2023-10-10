@@ -1,4 +1,4 @@
-package org.homework.exñeption;
+package org.homework.exception;
 
 /**
  * The `BigDebitException` class is a custom exception that may occur when a debit transaction results in

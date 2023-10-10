@@ -1,4 +1,4 @@
-package org.homework.exñeption;
+package org.homework.exception;
 
 /**
  * The `UniqueIdException` class is a custom exception that may occur if the transaction identifier is not unique.

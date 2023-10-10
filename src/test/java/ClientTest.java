@@ -1,6 +1,6 @@
 import org.homework.domain.Client;
-import org.homework.exсeption.BigDebitException;
-import org.homework.exсeption.UniqueIdException;
+import org.homework.exception.BigDebitException;
+import org.homework.exception.UniqueIdException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -2,8 +2,8 @@ package org.homework.ui;
 
 import org.homework.dataacess.ClientsDataBase;
 import org.homework.domain.Client;
-import org.homework.exñeption.BigDebitException;
-import org.homework.exñeption.UniqueIdException;
+import org.homework.exception.BigDebitException;
+import org.homework.exception.UniqueIdException;
 
 
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package org.homework.exñeption;
+package org.homework.exception;
 
 /**
  * The `AuthorizationException` class is a custom exception that may occur in case of user authorization issues.
