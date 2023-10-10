@@ -44,7 +44,7 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ClientTest">
+  <component name="RunManager" selected="Application.Input">
     <configuration name="Input" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.homework.ui.Input" />
       <module name="Wallet-Service" />
@@ -99,11 +99,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Input" />
         <item itemvalue="JUnit.ClientTest" />
         <item itemvalue="JUnit.ClientTest.balanceLessThenDebet" />
         <item itemvalue="JUnit.ClientTest.increaseBalanceThroughCredit" />
         <item itemvalue="JUnit.ClientTest.decreasedBalanceThroughDebet" />
-        <item itemvalue="Application.Input" />
       </list>
     </recent_temporary>
   </component>
@@ -117,7 +117,7 @@
       <updated>1696861711252</updated>
       <workItem from="1696861713830" duration="16335000" />
       <workItem from="1696911990767" duration="22940000" />
-      <workItem from="1696940014990" duration="467000" />
+      <workItem from="1696940014990" duration="800000" />
     </task>
     <servers />
   </component>
