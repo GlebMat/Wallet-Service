@@ -23,7 +23,8 @@ cd wallet-service
 2. Соберите проект с помощью команды:
 
 ```bash
-javac -d bin src/org/homework/**/*.java
+find src -name "*.java" > sources.txt
+javac -d bin @sources.txt
 ```
 
 ## Запуск приложения
