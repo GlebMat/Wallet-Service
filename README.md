@@ -49,8 +49,3 @@ java -jar Work.jar
 * history: просмотреть историю операций.
 * logout: выйти из аккаунта.
 
-## Тестирование
-Проект включает в себя набор юнит-тестов для класса Client. Вы можете запустить тесты с помощью фреймворка JUnit. Перейдите в каталог bin и выполните команду:
-```bash
-java org.junit.runner.JUnitCore org.homework.domain.ClientTest
-```
