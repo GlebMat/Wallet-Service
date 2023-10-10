@@ -32,7 +32,7 @@ public class Transaction {
      */
     @Override
     public String toString() {
-        return "Тип транзакции = " + typeTransaction +
-                ", сумма перевода " + sum;
+        return "Transaction type - " + typeTransaction +
+                ", transfer amount " + sum;
     }
 }

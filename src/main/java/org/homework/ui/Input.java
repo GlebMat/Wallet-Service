@@ -40,12 +40,12 @@ public class Input {
      * @param clientsDataBase объект ClientsDataBase для хранения зарегистрированных игроков.
      */
     public static void register(Scanner scanner, ClientsDataBase clientsDataBase) {
-        System.out.println("Введите имя пользователя:");
+        System.out.println("Enter username:");
         String clientName = scanner.nextLine();
-        System.out.println("Введите пароль:");
+        System.out.println("Enter password:");
         String clientPass = scanner.nextLine();
         clientsDataBase.setClients(clientName, clientPass);
-        System.out.println("Регистрация прошла успешно!");
+        System.out.println("Registration was successful!");
     }
 
     /**
@@ -62,12 +62,12 @@ public class Input {
         Client activeClient = clientsDataBase.getClients().get(clientName);
 
         if (clientPass.equals(activeClient.getPassword())) {
-            System.out.println("Авторизация прошла успешно!");
+            System.out.println("Authorization was successful!");
 
             return activeClient;
         }
         if (activeClient == null || activeClient.getPassword().equals(clientPass)) {
-            System.out.println("Пользователя с таким username или password не существует");
+            System.out.println("The user with such username or password does not exist");
         }
         return activeClient;
     }
@@ -83,18 +83,18 @@ public class Input {
     public static void sesions(Client client, boolean shouldLogout, Scanner scanner) {
 
         while (shouldLogout) {
-            System.out.println("Выберите действие:");
-            System.out.println("1 - Дебет");
-            System.out.println("2 - Кредит");
-            System.out.println("3 - Баланс");
-            System.out.println("4 - История транзакций");
-            System.out.println("0 - Выйти");
+            System.out.println("Select an action:");
+            System.out.println("1 - Debit");
+            System.out.println("2 - Credit");
+            System.out.println("3 - Balance");
+            System.out.println("4 - Transaction History");
+            System.out.println("0 - Exit");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
 
                 case 1:
-                    System.out.println("Введите сумму дебита");
+                    System.out.println("Enter the amount of the debit");
                     int s2 = scanner.nextInt();
                     try {
                         client.debit(s2);
@@ -107,7 +107,7 @@ public class Input {
                     break;
 
                 case 2:
-                    System.out.println("Введите сумму кредита");
+                    System.out.println("Enter the amount of credit");
                     int s3 = scanner.nextInt();
                     try {
                         client.credit(s3);
@@ -117,20 +117,22 @@ public class Input {
                     break;
                 case 3:
                     System.out.println(client.getBalance());
-                    System.out.println("Введите одну из комманд: debit, credit, balance, history, logout");
-
                     break;
 
                 case 4:
                     client.history();
-                    System.out.println("Введите одну из комманд: debit, credit, balance, history, logout");
 
                     break;
                 case 0:
                     shouldLogout = false;
                     break;
                 default:
-                    System.out.println("Введите одну из комманд: debit, credit, balance, history, logout");
+                    System.out.println("Select an action:");
+                    System.out.println("1 - Debit");
+                    System.out.println("2 - Credit");
+                    System.out.println("3 - Balance");
+                    System.out.println("4 - Transaction History");
+                    System.out.println("0 - Exit");
 
             }
         }
@@ -148,19 +150,19 @@ public class Input {
      */
     public static void verifyClient(boolean shouldExit, Scanner scanner, ClientsDataBase clientsDataBase, Client client, boolean checkLogin) {
         while (shouldExit) {
-            System.out.println("Добрый день! Выберите действие:");
-            System.out.println("1 - Регистрация");
-            System.out.println("2 - Авторизация");
-            System.out.println("0 - Выход");
+            System.out.println("Good afternoon! Choose an action:");
+            System.out.println("1 - Registration");
+            System.out.println("2 - Authorization");
+            System.out.println("0 - Exit");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    System.out.println("Чтобы зарегистрироваться введите username и password");
+                    System.out.println("To register, enter username and password");
                     register(scanner, clientsDataBase);
                     break;
                 case 2:
-                    System.out.println("Чтобы войти в свой аккаунт введите username и password");
+                    System.out.println("To log in to your account, enter username and password");
                     client = login(scanner, clientsDataBase);
                     if (client != null) {
                         sesions(client, checkLogin, scanner);
@@ -170,7 +172,7 @@ public class Input {
                     shouldExit = false;
                     break;
                 default:
-                    System.out.println("Неккоректный ввод");
+                    System.out.println("Incorrect input");
             }
 
         }

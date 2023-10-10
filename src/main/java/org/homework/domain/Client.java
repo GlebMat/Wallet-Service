@@ -99,14 +99,14 @@ public class Client {
     public void debit(double withdrow) throws BigDebetException, UniquIdExeption {
 
         if (balance - withdrow < 0) {
-            throw new BigDebetException("Не хватает средств для снятия");
+            throw new BigDebetException("Not enough funds for withdrawal");
         }
         balance = balance - withdrow;
         int uId = idTransaction.getId();
 
         for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
             if (uId == entry.getKey()) {
-                throw new UniquIdExeption("Переданный id не уникальный");
+                throw new UniquIdExeption("The passed id is not unique");
             }
         }
         transactions.put(uId, new Transaction(TypeTransaction.DEBET, withdrow));
@@ -130,7 +130,7 @@ public class Client {
 
         for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
             if (uId == entry.getKey()) {
-                throw new UniquIdExeption("Переданный id не уникальный");
+                throw new UniquIdExeption("The passed id is not unique");
             }
         }
         transactions.put(uId, new Transaction(TypeTransaction.CREDIT, credit));
