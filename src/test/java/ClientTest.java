@@ -1,20 +1,20 @@
 import org.homework.domain.Client;
-import org.homework.exeption.BigDebetException;
-import org.homework.exeption.UniquIdExeption;
+import org.homework.exсeption.BigDebitException;
+import org.homework.exсeption.UniqueIdException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Класс ClientTest представляет набор юнит-тестов для класса Client, который управляет клиентскими счетами.
- * Он проверяет различные сценарии дебетовых и кредитных транзакций, а также обработку исключений.
+ * The `ClientTest` class represents a set of unit tests for the `Client` class, which manages client accounts.
+ * It verifies various scenarios of debit and credit transactions, as well as exception handling.
  */
 public class ClientTest {
     private final double EPS = 1e-9;
     private Client c1;
 
     /**
-     * Инициализирует клиентский объект c1 с начальным балансом 100 перед выполнением каждого тестового метода.
+     * Initializes the client object `c1` with an initial balance of 100 before executing each test method.
      */
     @Before
     public void createNewClient() {
@@ -23,41 +23,41 @@ public class ClientTest {
     }
 
     /**
-     * Проверяет, уменьшается ли баланс после дебетовой транзакции.
+     * Checks whether the balance decreases after a debit transaction.
      */
     @Test()
     public void decreasedBalanceThroughDebit() {
         try {
             c1.debit(10);
-        } catch (BigDebetException e) {
+        } catch (BigDebitException e) {
             System.out.println(e.getMessage());
-        } catch (UniquIdExeption e) {
+        } catch (UniqueIdException e) {
             System.out.println(e.getMessage());
         }
         Assert.assertEquals(90, c1.getBalance(), EPS);
     }
 
     /**
-     * Проверяет, увеличивается ли баланс после кредитной транзакции.
+     * Checks whether the balance increases after a credit transaction.
      */
     @Test
     public void increaseBalanceThroughCredit() {
         try {
             c1.credit(100);
-        } catch (UniquIdExeption e) {
+        } catch (UniqueIdException e) {
             System.out.println(e.getMessage());
         }
         Assert.assertEquals(200, c1.getBalance(), EPS);
     }
 
     /**
-     * Проверяет, возникает ли исключение BigDebetException, когда пытаемся выполнить дебетовую транзакцию с недостаточными средствами.
+     * Checks if the `BigDebitException` is thrown when attempting a debit transaction with insufficient funds.
      *
-     * @throws UniquIdExeption   исключение, которое может возникнуть при выполнении транзакции.
-     * @throws BigDebetException ожидаемое исключение при выполнении дебетовой транзакции.
+     * @throws UniqueIdException An exception that may occur during the transaction.
+     * @throws BigDebitException The expected exception when performing a debit transaction.
      */
-    @Test(expected = BigDebetException.class)
-    public void balanceLessThenDebit() throws UniquIdExeption, BigDebetException {
+    @Test(expected = BigDebitException.class)
+    public void balanceLessThenDebit() throws UniqueIdException, BigDebitException {
         c1.debit(1000);
     }
 }

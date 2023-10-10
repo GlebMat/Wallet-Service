@@ -1,23 +1,23 @@
 package org.homework.domain;
 
 /**
- * Класс Transaction представляет собой модель финансовой транзакции, включая тип транзакции и сумму перевода.
+ * The `Transaction` class represents a financial transaction model, including the transaction type and the transfer amount.
  */
 public class Transaction {
     /**
-     * Тип финансовой транзакции (дебет или кредит).
+     * The type of financial transaction (debit or credit).
      */
     private TypeTransaction typeTransaction;
     /**
-     * Сумма перевода в финансовой транзакции.
+     * The transfer amount in the financial transaction.
      */
     private double sum;
 
     /**
-     * Конструктор для создания объекта Transaction с указанием типа транзакции и суммы перевода.
+     * Constructor for creating a `Transaction` object with the specified transaction type and transfer amount.
      *
-     * @param typeTransaction Тип финансовой транзакции (дебет или кредит).
-     * @param sum             Сумма перевода в финансовой транзакции.
+     * @param typeTransaction The type of financial transaction (debit or credit).
+     * @param sum             The transfer amount in the financial transaction.
      */
     public Transaction(TypeTransaction typeTransaction, double sum) {
 
@@ -26,9 +26,9 @@ public class Transaction {
     }
 
     /**
-     * Переопределение метода toString для представления объекта Transaction в виде строки.
+     * Overrides the `toString` method to represent a `Transaction` object as a string.
      *
-     * @return Строковое представление объекта Transaction, включая тип и сумму транзакции.
+     * @return A string representation of the `Transaction` object, including the type and amount of the transaction.
      */
     @Override
     public String toString() {

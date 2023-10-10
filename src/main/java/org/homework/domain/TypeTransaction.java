@@ -1,15 +1,15 @@
 package org.homework.domain;
 
 /**
- * Перечисление TypeTransaction представляет собой типы финансовых транзакций: дебет и кредит.
+ * The `TypeTransaction` enumeration represents types of financial transactions: debit and credit.
  */
 public enum TypeTransaction {
     /**
-     * Тип финансовой транзакции - дебет (списание средств).
+     * Type of financial transaction - debit (withdrawal of funds).
      */
-    DEBET,
+    DEBIT,
     /**
-     * Тип финансовой транзакции - кредит (пополнение средств).
+     * Type of financial transaction - credit (adding funds).
      */
     CREDIT
 }

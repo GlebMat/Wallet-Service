@@ -2,23 +2,22 @@ package org.homework.ui;
 
 import org.homework.dataacess.ClientsDataBase;
 import org.homework.domain.Client;
-import org.homework.exeption.BigDebetException;
-import org.homework.exeption.UniquIdExeption;
+import org.homework.exсeption.BigDebitException;
+import org.homework.exсeption.UniqueIdException;
 
 
 import java.util.Scanner;
 
 /**
- * Класс Input представляет консольное приложение для управления кредитными/дебетовыми транзакциями игроков.
- * Пользователи могут зарегистрироваться, авторизоваться, просматривать баланс, выполнять дебетовые и кредитные транзакции,
- * а также просматривать историю транзакций.
+ * The `Input` class represents a console application for managing player credit/debit transactions.
+ * Users can register, log in, view their balance, perform debit and credit transactions, and view transaction history.
  */
 public class Input {
     /**
-     * Точка входа в приложение. Создает объекты Scanner, ClientsDataBase и Client,
-     * а затем запускает процесс авторизации и управления транзакциями.
+     * The entry point of the application. It creates Scanner, ClientsDataBase, and Client objects,
+     * and then initiates the login and transaction management process.
      *
-     * @param args аргументы командной строки (не используются).
+     * @param args Command-line arguments (not used).
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -28,16 +27,14 @@ public class Input {
         boolean shouldExit = true;
         boolean checkLogin = true;
         verifyClient(shouldExit, scanner, clientsDataBase, client, checkLogin);
-
-
     }
 
     /**
-     * Регистрирует нового игрока путем запроса имени пользователя и пароля через консольный ввод.
-     * После успешной регистрации выводит сообщение об успешной регистрации.
+     * Registers a new player by requesting a username and password through console input.
+     * Displays a success message after successful registration.
      *
-     * @param scanner         объект Scanner для чтения ввода пользователя.
-     * @param clientsDataBase объект ClientsDataBase для хранения зарегистрированных игроков.
+     * @param scanner         A Scanner object for reading user input.
+     * @param clientsDataBase A ClientsDataBase object for storing registered players.
      */
     public static void register(Scanner scanner, ClientsDataBase clientsDataBase) {
         System.out.println("Enter username:");
@@ -49,12 +46,13 @@ public class Input {
     }
 
     /**
-     * Позволяет игроку авторизоваться, запрашивая имя пользователя и пароль через консольный ввод.
-     * После успешной авторизации возвращает объект клиента, иначе выводит сообщение об ошибке.
+     * Allows a player to log in by requesting a username and password through console input.
+     * Returns a Client object representing the logged-in player upon successful authentication,
+     * or displays an error message otherwise.
      *
-     * @param scanner         объект Scanner для чтения ввода пользователя.
-     * @param clientsDataBase объект ClientsDataBase для проверки учетных данных игрока.
-     * @return объект Client, представляющий авторизованного игрока, или null в случае ошибки.
+     * @param scanner         A Scanner object for reading user input.
+     * @param clientsDataBase A ClientsDataBase object for checking player credentials.
+     * @return A Client object representing the authenticated player, or null in case of an error.
      */
     public static Client login(Scanner scanner, ClientsDataBase clientsDataBase) {
         String clientName = scanner.nextLine();
@@ -63,7 +61,6 @@ public class Input {
 
         if (clientPass.equals(activeClient.getPassword())) {
             System.out.println("Authorization was successful!");
-
             return activeClient;
         }
         if (activeClient == null || activeClient.getPassword().equals(clientPass)) {
@@ -73,15 +70,14 @@ public class Input {
     }
 
     /**
-     * Позволяет авторизованному игроку выполнять различные действия, такие как дебетовые и кредитные транзакции,
-     * просмотр баланса и истории транзакций. Выходит из этой сессии, когда игрок выбирает опцию "Выйти".
+     * Allows an authenticated player to perform various actions such as debit and credit transactions,
+     * view their balance, and transaction history. Exits this session when the player chooses "Exit."
      *
-     * @param client       авторизованный игрок.
-     * @param shouldLogout флаг, указывающий, продолжать ли сессию.
-     * @param scanner      объект Scanner для чтения ввода пользователя.
+     * @param client       The authenticated player.
+     * @param shouldLogout A flag indicating whether to continue the session.
+     * @param scanner      A Scanner object for reading user input.
      */
-    public static void sesions(Client client, boolean shouldLogout, Scanner scanner) {
-
+    public static void sessions(Client client, boolean shouldLogout, Scanner scanner) {
         while (shouldLogout) {
             System.out.println("Select an action:");
             System.out.println("1 - Debit");
@@ -98,11 +94,10 @@ public class Input {
                     int s2 = scanner.nextInt();
                     try {
                         client.debit(s2);
-                    } catch (BigDebetException e) {
+                    } catch (BigDebitException e) {
                         System.out.println(e.getMessage());
-                    } catch (UniquIdExeption e) {
+                    } catch (UniqueIdException e) {
                         System.out.println(e.getMessage());
-                        ;
                     }
                     break;
 
@@ -111,7 +106,7 @@ public class Input {
                     int s3 = scanner.nextInt();
                     try {
                         client.credit(s3);
-                    } catch (UniquIdExeption e) {
+                    } catch (UniqueIdException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
@@ -121,7 +116,6 @@ public class Input {
 
                 case 4:
                     client.history();
-
                     break;
                 case 0:
                     shouldLogout = false;
@@ -133,20 +127,19 @@ public class Input {
                     System.out.println("3 - Balance");
                     System.out.println("4 - Transaction History");
                     System.out.println("0 - Exit");
-
             }
         }
     }
 
     /**
-     * Позволяет пользователям регистрироваться или авторизовываться и управлять своими транзакциями.
-     * Выходит из приложения, когда пользователь выбирает опцию "Выход".
+     * Allows users to register or log in and manage their transactions.
+     * Exits the application when the user chooses "Exit."
      *
-     * @param shouldExit      флаг, указывающий, завершить ли приложение.
-     * @param scanner         объект Scanner для чтения ввода пользователя.
-     * @param clientsDataBase объект ClientsDataBase для управления пользователями.
-     * @param client          объект Client для хранения текущего пользователя.
-     * @param checkLogin      флаг, указывающий, авторизован ли текущий пользователь.
+     * @param shouldExit      A flag indicating whether to terminate the application.
+     * @param scanner         A Scanner object for reading user input.
+     * @param clientsDataBase A ClientsDataBase object for managing users.
+     * @param client          A Client object for storing the current user.
+     * @param checkLogin      A flag indicating whether the current user is logged in.
      */
     public static void verifyClient(boolean shouldExit, Scanner scanner, ClientsDataBase clientsDataBase, Client client, boolean checkLogin) {
         while (shouldExit) {
@@ -165,7 +158,7 @@ public class Input {
                     System.out.println("To log in to your account, enter username and password");
                     client = login(scanner, clientsDataBase);
                     if (client != null) {
-                        sesions(client, checkLogin, scanner);
+                        sessions(client, checkLogin, scanner);
                     }
                     break;
                 case 0:
@@ -174,7 +167,6 @@ public class Input {
                 default:
                     System.out.println("Incorrect input");
             }
-
         }
     }
 }

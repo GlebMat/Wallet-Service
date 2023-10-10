@@ -1,28 +1,28 @@
 package org.homework.dataacess;
 
 /**
- * Класс IdTransaction представляет уникальный идентификатор транзакции.
- * Этот класс позволяет создавать и получать уникальные идентификаторы для транзакций.
+ * The `IdTransaction` class represents a unique transaction identifier.
+ * This class allows you to create and retrieve unique identifiers for transactions.
  */
 public class IdTransaction {
     /**
-     * Уникальный идентификатор транзакции.
+     * The unique identifier for the transaction.
      */
     private int id = 0;
 
     /**
-     * Получает текущее значение уникального идентификатора транзакции.
+     * Get the current value of the unique transaction identifier.
      *
-     * @return Уникальный идентификатор транзакции.
+     * @return The unique transaction identifier.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Устанавливает новое значение уникального идентификатора транзакции.
+     * Set a new value for the unique transaction identifier.
      *
-     * @param id Новое значение уникального идентификатора транзакции.
+     * @param id The new value of the unique transaction identifier.
      */
     public void setId(int id) {
         this.id = id;

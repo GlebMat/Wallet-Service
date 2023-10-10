@@ -1,153 +1,145 @@
 package org.homework.domain;
 
 import org.homework.dataacess.IdTransaction;
-import org.homework.exeption.BigDebetException;
-import org.homework.exeption.UniquIdExeption;
+import org.homework.exсeption.BigDebitException;
+import org.homework.exсeption.UniqueIdException;
 
 import java.util.*;
 
 /**
- * Класс Client представляет собой модель клиента счета и управление его финансовыми транзакциями.
- * Каждый клиент имеет уникальное имя пользователя (username) и пароль (password), а также может выполнять
- * дебетовые и кредитные транзакции для изменения своего баланса.
+ * The `Client` class represents a client model with management of their financial transactions.
+ * Each client has a unique username and password and can perform debit and credit transactions to change their balance.
  */
 public class Client {
     /**
-     * Имя пользователя клиента.
+     * The username of the client.
      */
     private String username;
 
     /**
-     * Пароль пользователя клиента.
+     * The password of the client.
      */
     private String password;
     /**
-     * Уникальный идентификатор транзакции клиента.
+     * The unique transaction identifier of the client.
      */
     private IdTransaction idTransaction = new IdTransaction();
     /**
-     * Текущий баланс клиента.
+     * The current balance of the client.
      */
     private double balance;
     /**
-     * Список транзакций клиента.
+     * The list of client transactions.
      */
 
     private Map<Integer, Transaction> transactions = new HashMap<>();
 
     /**
-     * Получает текущий баланс клиента.
+     * Get the current balance of the client.
      *
-     * @return Текущий баланс клиента.
+     * @return The current balance of the client.
      */
     public double getBalance() {
         return balance;
     }
 
     /**
-     * Устанавливает новый баланс клиента.
+     * Set a new balance for the client.
      *
-     * @param balance Новый баланс клиента.
+     * @param balance The new balance of the client.
      */
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
     /**
-     * Получает имя пользователя клиента.
+     * Get the username of the client.
      *
-     * @return Имя пользователя клиента.
+     * @return The username of the client.
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * Устанавливает имя пользователя клиента.
+     * Set the username of the client.
      *
-     * @param username Имя пользователя клиента.
+     * @param username The username of the client.
      */
     public void setUsername(String username) {
         this.username = username;
     }
 
     /**
-     * Получает пароль пользователя клиента.
+     * Get the password of the client.
      *
-     * @return Пароль пользователя клиента.
+     * @return The password of the client.
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * Устанавливает пароль пользователя клиента.
+     * Set the password of the client.
      *
-     * @param password Пароль пользователя клиента.
+     * @param password The password of the client.
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     * Выполняет дебетовую транзакцию, снимая средства с баланса клиента.
+     * Perform a debit transaction, withdrawing funds from the client's balance.
      *
-     * @param withdrow Сумма снятия с баланса.
-     * @throws BigDebetException Если сумма снятия превышает текущий баланс клиента.
-     * @throws UniquIdExeption   Если идентификатор транзакции не уникален.
+     * @param withdrow The amount to withdraw from the balance.
+     * @throws BigDebitException If the withdrawal amount exceeds the current balance of the client.
+     * @throws UniqueIdException If the transaction ID is not unique.
      */
-    public void debit(double withdrow) throws BigDebetException, UniquIdExeption {
+    public void debit(double withdrow) throws BigDebitException, UniqueIdException {
 
         if (balance - withdrow < 0) {
-            throw new BigDebetException("Not enough funds for withdrawal");
+            throw new BigDebitException("Not enough funds for withdrawal");
         }
         balance = balance - withdrow;
         int uId = idTransaction.getId();
 
         for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
             if (uId == entry.getKey()) {
-                throw new UniquIdExeption("The passed id is not unique");
+                throw new UniqueIdException("The passed ID is not unique");
             }
         }
-        transactions.put(uId, new Transaction(TypeTransaction.DEBET, withdrow));
+        transactions.put(uId, new Transaction(TypeTransaction.DEBIT, withdrow));
         idTransaction.setId(idTransaction.getId() + 1);
         System.out.println(transactions.get(uId));
-
-
     }
 
     /**
-     * Выполняет кредитную транзакцию, добавляя средства на баланс клиента.
+     * Perform a credit transaction, adding funds to the client's balance.
      *
-     * @param credit Сумма кредита для добавления на баланс.
-     * @throws UniquIdExeption Если идентификатор транзакции не уникален.
+     * @param credit The amount of credit to add to the balance.
+     * @throws UniqueIdException If the transaction ID is not unique.
      */
-    public void credit(double credit) throws UniquIdExeption {
-
-
+    public void credit(double credit) throws UniqueIdException {
         balance = balance + credit;
         int uId = idTransaction.getId();
 
         for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
             if (uId == entry.getKey()) {
-                throw new UniquIdExeption("The passed id is not unique");
+                throw new UniqueIdException("The passed ID is not unique");
             }
         }
         transactions.put(uId, new Transaction(TypeTransaction.CREDIT, credit));
         idTransaction.setId(idTransaction.getId() + 1);
         System.out.println(transactions.get(uId));
-
-
     }
 
     /**
-     * Выводит историю транзакций клиента.
+     * Display the transaction history of the client.
      */
     public void history() {
         for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
             System.out.println(entry.getValue());
         }
     }
-
-
 }
+

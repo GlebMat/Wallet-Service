@@ -6,29 +6,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Класс ClientsDataBase представляет базу данных клиентов.
- * Он хранит информацию о клиентах, предоставляет методы для доступа и управления данными клиентов.
+ * The `ClientsDataBase` class represents a database of clients.
+ * It stores information about clients and provides methods for accessing and managing client data.
  */
 public class ClientsDataBase {
     /**
-     * Хранилище клиентов, где ключ - это имя пользователя, а значение - соответствующий объект клиента.
+     * The storage of clients, where the key is the username, and the value is the corresponding client object.
      */
     Map<String, Client> clients = new HashMap<>();
 
     /**
-     * Получает текущее хранилище клиентов.
+     * Get the current storage of clients.
      *
-     * @return Хранилище клиентов в виде отображения, где ключ - имя пользователя, значение - объект клиента.
+     * @return The storage of clients as a map, where the key is the username, and the value is the client object.
      */
     public Map<String, Client> getClients() {
         return clients;
     }
 
     /**
-     * Добавляет нового клиента в хранилище.
+     * Add a new client to the storage.
      *
-     * @param username Имя пользователя нового клиента.
-     * @param password Пароль нового клиента.
+     * @param username The username of the new client.
+     * @param password The password of the new client.
      */
     public void setClients(String username, String password) {
         Client client = new Client();
