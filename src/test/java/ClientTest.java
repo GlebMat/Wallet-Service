@@ -11,7 +11,6 @@ import org.junit.Test;
  */
 public class ClientTest {
     private final double EPS = 1e-9;
-
     private Client c1;
 
     /**
