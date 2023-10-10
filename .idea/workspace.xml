@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +47,12 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ClientTest">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Input">
     <configuration name="Input" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.homework.ui.Input" />
       <module name="Wallet-Service" />
@@ -99,8 +107,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClientTest" />
         <item itemvalue="Application.Input" />
+        <item itemvalue="JUnit.ClientTest" />
         <item itemvalue="JUnit.ClientTest.balanceLessThenDebet" />
         <item itemvalue="JUnit.ClientTest.increaseBalanceThroughCredit" />
         <item itemvalue="JUnit.ClientTest.decreasedBalanceThroughDebet" />
@@ -119,7 +127,7 @@
       <workItem from="1696911990767" duration="22940000" />
       <workItem from="1696940014990" duration="800000" />
       <workItem from="1696940968006" duration="287000" />
-      <workItem from="1696941269929" duration="2503000" />
+      <workItem from="1696941269929" duration="7903000" />
     </task>
     <servers />
   </component>

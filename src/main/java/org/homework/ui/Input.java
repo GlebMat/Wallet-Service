@@ -81,13 +81,14 @@ public class Input {
      * @param scanner      объект Scanner для чтения ввода пользователя.
      */
     public static void sesions(Client client, boolean shouldLogout, Scanner scanner) {
-        System.out.println("Выберите действие:");
-        System.out.println("1 - Дебет");
-        System.out.println("2 - Кредит");
-        System.out.println("3 - Баланс");
-        System.out.println("4 - История транзакций");
-        System.out.println("0 - Выйти");
+
         while (shouldLogout) {
+            System.out.println("Выберите действие:");
+            System.out.println("1 - Дебет");
+            System.out.println("2 - Кредит");
+            System.out.println("3 - Баланс");
+            System.out.println("4 - История транзакций");
+            System.out.println("0 - Выйти");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
