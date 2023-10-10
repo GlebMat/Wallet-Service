@@ -3,7 +3,7 @@ package org.homework.dataacess;
 public class IdTransaction {
     private int id = 0;
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 

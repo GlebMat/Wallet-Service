@@ -2,6 +2,8 @@ package org.homework.ui;
 
 import org.homework.dataacess.ClientsDataBase;
 import org.homework.domain.Client;
+import org.homework.exeption.BigDebetException;
+import org.homework.exeption.UniquIdExeption;
 
 
 import java.util.Scanner;
@@ -12,15 +14,17 @@ public class Input {
         ClientsDataBase clientsDataBase = new ClientsDataBase();
         Client client = new Client();
 
-        boolean checkAutorisation = true;
+        boolean shouldExit = true;
         boolean checkLogin = true;
-        verifyClient(checkAutorisation, scanner, clientsDataBase, client, checkLogin);
+        verifyClient(shouldExit, scanner, clientsDataBase, client, checkLogin);
 
 
     }
 
     public static void register(Scanner scanner, ClientsDataBase clientsDataBase) {
+        System.out.println("Введите имя пользователя:");
         String clientName = scanner.nextLine();
+        System.out.println("Введите пароль:");
         String clientPass = scanner.nextLine();
         clientsDataBase.setClients(clientName, clientPass);
         System.out.println("Регистрация прошла успешно!");
@@ -29,51 +33,65 @@ public class Input {
     public static Client login(Scanner scanner, ClientsDataBase clientsDataBase) {
         String clientName = scanner.nextLine();
         String clientPass = scanner.nextLine();
-        Client activeClient;
-        for (Client client : clientsDataBase.getClients()) {
-            if ((clientName.equals(client.getUsername()))) {
-                if (clientPass.equals(client.getPassword())) {
-                    System.out.println("Авторизация прошла успешно!");
-                    activeClient = client;
-                    return activeClient;
-                } else {
-                    System.out.println("Пароль введен неверно");
-                }
-            } else {
-                System.out.println("Пользователя с таким username не существует");
-            }
+        Client activeClient = clientsDataBase.getClients().get(clientName);
+
+        if (clientPass.equals(activeClient.getPassword())) {
+            System.out.println("Авторизация прошла успешно!");
+
+            return activeClient;
         }
-        return null;
+        if (activeClient == null || activeClient.getPassword().equals(clientPass)) {
+            System.out.println("Пользователя с таким username или password не существует");
+        }
+        return activeClient;
     }
 
     public static void sesions(Client client, boolean flag, Scanner scanner) {
-        System.out.println("Введите одну из комманд: debit, credit, balance, history, logout");
+        System.out.println("Выберите действие:");
+        System.out.println("1 - Дебет");
+        System.out.println("2 - Кредит");
+        System.out.println("3 - Баланс");
+        System.out.println("4 - История транзакций");
+        System.out.println("0 - Выйти");
         while (flag) {
-            switch (scanner.nextLine()) {
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
 
-                case ("debit"):
+                case 1:
                     System.out.println("Введите сумму дебита");
                     int s2 = scanner.nextInt();
-                    client.debit(s2);
+                    try {
+                        client.debit(s2);
+                    } catch (BigDebetException e) {
+                        System.out.println(e.getMessage());
+                    } catch (UniquIdExeption e) {
+                        System.out.println(e.getMessage());
+                        ;
+                    }
                     break;
 
-                case ("credit"):
+                case 2:
                     System.out.println("Введите сумму кредита");
                     int s3 = scanner.nextInt();
-                    client.credit(s3);
+                    try {
+                        client.credit(s3);
+                    } catch (UniquIdExeption e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
-                case ("balance"):
+                case 3:
                     System.out.println(client.getBalance());
                     System.out.println("Введите одну из комманд: debit, credit, balance, history, logout");
 
                     break;
 
-                case ("history"):
+                case 4:
                     client.history();
                     System.out.println("Введите одну из комманд: debit, credit, balance, history, logout");
 
                     break;
-                case ("logout"):
+                case 0:
                     flag = false;
                     break;
                 default:
@@ -83,23 +101,28 @@ public class Input {
         }
     }
 
-    public static void verifyClient(boolean checkAutorisation, Scanner scanner, ClientsDataBase clientsDataBase, Client client, boolean checkLogin) {
-        while (checkAutorisation) {
-            System.out.println("Добрый день! если вы уже зарегистрированный пользователь нажмите 1, Если вы хотите зарегистрироваться нажмите 0, Чтобы выйти напишите exit");
-            switch (scanner.nextLine()) {
-                case ("0"):
+    public static void verifyClient(boolean shouldExit, Scanner scanner, ClientsDataBase clientsDataBase, Client client, boolean checkLogin) {
+        while (shouldExit) {
+            System.out.println("Добрый день! Выберите действие:");
+            System.out.println("1 - Регистрация");
+            System.out.println("2 - Авторизация");
+            System.out.println("0 - Выход");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 1:
                     System.out.println("Чтобы зарегистрироваться введите username и password");
                     register(scanner, clientsDataBase);
                     break;
-                case ("1"):
+                case 2:
                     System.out.println("Чтобы войти в свой аккаунт введите username и password");
                     client = login(scanner, clientsDataBase);
                     if (client != null) {
                         sesions(client, checkLogin, scanner);
                     }
                     break;
-                case ("exit"):
-                    checkAutorisation = false;
+                case 0:
+                    shouldExit = false;
                     break;
                 default:
                     System.out.println("Неккоректный ввод");

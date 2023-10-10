@@ -1,14 +1,13 @@
 package org.homework.dataacess;
 
 import org.homework.domain.Client;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ClientsDataBase {
-    List<Client> clients = new ArrayList<>();
+    Map<String, Client> clients = new HashMap<>();
 
-    public List<Client> getClients() {
+    public Map<String, Client> getClients() {
         return clients;
     }
 
@@ -17,7 +16,7 @@ public class ClientsDataBase {
         client.setUsername(username);
         client.setPassword(password);
 
-        clients.add(client);
+        clients.put(username, client);
     }
 
     @Override

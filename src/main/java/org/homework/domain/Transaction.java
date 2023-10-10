@@ -1,12 +1,23 @@
 package org.homework.domain;
 
 import java.util.HashMap;
-import java.util.UUID;
+import java.util.Map;
+
 
 public class Transaction {
-     private HashMap<Integer, String> transaction = new HashMap<>();
-     public Transaction(int id, String operation){
-        transaction.put(id,operation);
-     }
 
+    private TypeTransaction typeTransaction;
+    private double sum;
+
+    public Transaction(TypeTransaction typeTransaction, double sum) {
+
+        this.typeTransaction = typeTransaction;
+        this.sum = sum;
+    }
+
+    @Override
+    public String toString() {
+        return "Тип транзакции = " + typeTransaction +
+                ", сумма перевода " + sum;
+    }
 }

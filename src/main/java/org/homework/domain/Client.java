@@ -1,6 +1,8 @@
 package org.homework.domain;
 
 import org.homework.dataacess.IdTransaction;
+import org.homework.exeption.BigDebetException;
+import org.homework.exeption.UniquIdExeption;
 
 import java.util.*;
 
@@ -11,12 +13,15 @@ public class Client {
     private IdTransaction idTransaction = new IdTransaction();
     private double balance;
 
-    private Map<Integer, String> transactions = new HashMap<>();
+    private Map<Integer, Transaction> transactions = new HashMap<>();
 
     public double getBalance() {
         return balance;
     }
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 
     public String getUsername() {
         return username;
@@ -34,64 +39,49 @@ public class Client {
         this.password = password;
     }
 
-    public void debit(double withdrow) {
-        try {
-            if (balance - withdrow < 0) {
-                throw new IllegalArgumentException();
-            }
-            balance = balance - withdrow;
-            int uId = idTransaction.getId();
+    public void debit(double withdrow) throws BigDebetException, UniquIdExeption {
 
-            for (Map.Entry<Integer, String> entry : transactions.entrySet()) {
-                if (uId == entry.getKey()) {
-                    throw new RuntimeException();
-                }
-            }
-            transactions.put(uId, "Списание средств " + withdrow);
-            idTransaction.setId(idTransaction.getId() + 1);
-            System.out.println(transactions.get(uId));
-
-        } catch (IllegalArgumentException e) {
-            System.out.println("insufficient funds");
-        } catch (RuntimeException e) {
-            System.out.println("error occurred");
+        if (balance - withdrow < 0) {
+            throw new BigDebetException("Не хватает средств для снятия");
         }
+        balance = balance - withdrow;
+        int uId = idTransaction.getId();
+
+        for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
+            if (uId == entry.getKey()) {
+                throw new UniquIdExeption("Переданный id не уникальный");
+            }
+        }
+        transactions.put(uId, new Transaction(TypeTransaction.DEBET, withdrow));
+        idTransaction.setId(idTransaction.getId() + 1);
+        System.out.println(transactions.get(uId));
+
 
     }
 
-    public void credit(double credit) {
-        try {
+    public void credit(double credit) throws UniquIdExeption {
 
-            balance = balance + credit;
-            int uId = idTransaction.getId();
 
-            for (Map.Entry<Integer, String> entry : transactions.entrySet()) {
-                if (uId == entry.getKey()) {
-                    throw new RuntimeException();
-                }
+        balance = balance + credit;
+        int uId = idTransaction.getId();
+
+        for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
+            if (uId == entry.getKey()) {
+                throw new UniquIdExeption("Переданный id не уникальный");
             }
-            transactions.put(uId, "Взят кредит " + credit);
-            idTransaction.setId(idTransaction.getId() + 1);
-            System.out.println(transactions.get(uId));
-
-        } catch (RuntimeException e) {
-            System.out.println("error occurred");
         }
+        transactions.put(uId, new Transaction(TypeTransaction.CREDIT, credit));
+        idTransaction.setId(idTransaction.getId() + 1);
+        System.out.println(transactions.get(uId));
+
+
     }
-    public void history(){
-        for (Map.Entry<Integer, String> entry : transactions.entrySet()) {
+
+    public void history() {
+        for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
             System.out.println(entry.getValue());
         }
     }
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", idTransaction=" + idTransaction +
-                ", balance=" + balance +
-                ", transactions=" + transactions +
-                '}';
-    }
+
 }
