@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="перевел javadoc на английский язык. Поменял неправельные название классов">
+    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="fix errors package name">
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +127,7 @@
       <workItem from="1696911990767" duration="22940000" />
       <workItem from="1696940014990" duration="800000" />
       <workItem from="1696940968006" duration="287000" />
-      <workItem from="1696941269929" duration="11871000" />
+      <workItem from="1696941269929" duration="14417000" />
     </task>
     <task id="LOCAL-00001" summary="bugfix">
       <created>1696953623276</created>
@@ -142,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696954789915</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix errors package name">
+      <created>1696955326755</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696955326755</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bugfix" />
     <MESSAGE value="перевел javadoc на английский язык. Поменял неправельные название классов" />
-    <option name="LAST_COMMIT_MESSAGE" value="перевел javadoc на английский язык. Поменял неправельные название классов" />
+    <MESSAGE value="fix errors package name" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix errors package name" />
   </component>
 </project>
