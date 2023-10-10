@@ -4,37 +4,37 @@
 
 ## Требования
 
-Для сборки и запуска проекта необходимо иметь установленную Java Development Kit (JDK) версии 8 или выше.
+Для сборки и запуска проекта необходимо иметь установленную Java Development Kit (JDK) версии 8 или выше и Apache Maven версии 3.9.5.
 
 ## Сборка проекта
 
 1. Клонируйте репозиторий на свой локальный компьютер:
 
 ```bash
-git clone https://github.com/glebmat/wallet-service.git
+git clone git@github.com:GlebMat/Wallet-Service.git
 ```
 
 1. Перейдите в каталог проекта:
 
 ```bash
-cd wallet-service
+cd Wallet-Service
+git switch walletService
 ```
 
 2. Соберите проект с помощью команды:
 
 ```bash
-find src -name "*.java" > sources.txt
-javac -d bin @sources.txt
+mvn clean install
 ```
 
 ## Запуск приложения
-1. Перейдите в каталог bin:
+1. Перейдите в каталог Wallet-Service\target:
 ```bash
-cd bin
+cd target
 ```
-2. Запустите главный класс Input:
+2. Запустите jar файл:
 ```bash
-java org.homework.ui.Input
+java -jar Work.jar 
 ```
 ## Использование
 После запуска приложения вы увидите приветственное сообщение и будете предложены следующие варианты:
