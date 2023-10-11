@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="fix errors package name">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="add LICENSE file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +22,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="GlebMat" />
+        <option name="repository" value="Wallet-Service" />
+      </RepoCoordinatesHolder>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,9 +49,9 @@
     "last_opened_file_path": "W:/GlebJavaVideo/javaSpringHomeWork/Wallet-Service",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding"
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.file-colors"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -127,7 +134,8 @@
       <workItem from="1696911990767" duration="22940000" />
       <workItem from="1696940014990" duration="800000" />
       <workItem from="1696940968006" duration="287000" />
-      <workItem from="1696941269929" duration="14417000" />
+      <workItem from="1696941269929" duration="15234000" />
+      <workItem from="1697003048536" duration="6033000" />
     </task>
     <task id="LOCAL-00001" summary="bugfix">
       <created>1696953623276</created>
@@ -150,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696955326755</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add LICENSE file">
+      <created>1696957777155</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696957777155</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +186,11 @@
     <MESSAGE value="bugfix" />
     <MESSAGE value="перевел javadoc на английский язык. Поменял неправельные название классов" />
     <MESSAGE value="fix errors package name" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix errors package name" />
+    <MESSAGE value="add LICENSE file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add LICENSE file" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
