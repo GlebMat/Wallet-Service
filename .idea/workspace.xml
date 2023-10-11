@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="add LICENSE file">
+    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="change project jdk version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +136,7 @@
       <workItem from="1696940014990" duration="800000" />
       <workItem from="1696940968006" duration="287000" />
       <workItem from="1696941269929" duration="15234000" />
-      <workItem from="1697003048536" duration="6033000" />
+      <workItem from="1697003048536" duration="10173000" />
     </task>
     <task id="LOCAL-00001" summary="bugfix">
       <created>1696953623276</created>
@@ -165,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696957777155</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="change project jdk version">
+      <created>1697015979442</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697015979442</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +195,8 @@
     <MESSAGE value="перевел javadoc на английский язык. Поменял неправельные название классов" />
     <MESSAGE value="fix errors package name" />
     <MESSAGE value="add LICENSE file" />
-    <option name="LAST_COMMIT_MESSAGE" value="add LICENSE file" />
+    <MESSAGE value="change project jdk version" />
+    <option name="LAST_COMMIT_MESSAGE" value="change project jdk version" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
