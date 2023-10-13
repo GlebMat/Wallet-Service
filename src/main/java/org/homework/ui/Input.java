@@ -1,6 +1,7 @@
 package org.homework.ui;
 
 import org.homework.dataacess.ClientsDataBase;
+import org.homework.dataacess.TransactionService;
 import org.homework.domain.Client;
 import org.homework.exception.BigDebitException;
 import org.homework.exception.UniqueIdException;
@@ -37,10 +38,24 @@ public class Input {
      * @param clientsDataBase A ClientsDataBase object for storing registered players.
      */
     public static void register(Scanner scanner, ClientsDataBase clientsDataBase) {
-        System.out.println("Enter username:");
-        String clientName = scanner.nextLine();
-        System.out.println("Enter password:");
-        String clientPass = scanner.nextLine();
+        boolean flag1 = true;
+        boolean flag2 = true;
+        String clientName = "";
+        String clientPass = "";
+        while (flag1) {
+            System.out.println("Enter username:");
+            clientName = scanner.nextLine();
+            if (!clientName.equals("")) {
+                flag1 = false;
+            }
+        }
+        while (flag2) {
+            System.out.println("Enter password:");
+            clientPass = scanner.nextLine();
+            if (!clientPass.equals("")) {
+                flag2 = false;
+            }
+        }
         clientsDataBase.setClients(clientName, clientPass);
         System.out.println("Registration was successful!");
     }
@@ -93,7 +108,7 @@ public class Input {
                     System.out.println("Enter the amount of the debit");
                     int s2 = scanner.nextInt();
                     try {
-                        client.debit(s2);
+                        TransactionService.debit(s2,client);
                     } catch (BigDebitException e) {
                         System.out.println(e.getMessage());
                     } catch (UniqueIdException e) {
@@ -105,7 +120,7 @@ public class Input {
                     System.out.println("Enter the amount of credit");
                     int s3 = scanner.nextInt();
                     try {
-                        client.credit(s3);
+                        TransactionService.credit(s3,client);
                     } catch (UniqueIdException e) {
                         System.out.println(e.getMessage());
                     }
@@ -115,7 +130,7 @@ public class Input {
                     break;
 
                 case 4:
-                    client.history();
+                    TransactionService.history(client);
                     break;
                 case 0:
                     shouldLogout = false;
@@ -152,10 +167,12 @@ public class Input {
             switch (choice) {
                 case 1:
                     System.out.println("To register, enter username and password");
+
                     register(scanner, clientsDataBase);
                     break;
                 case 2:
                     System.out.println("To log in to your account, enter username and password");
+
                     client = login(scanner, clientsDataBase);
                     if (client != null) {
                         sessions(client, checkLogin, scanner);

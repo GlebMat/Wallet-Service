@@ -23,7 +23,7 @@ public class Client {
     /**
      * The unique transaction identifier of the client.
      */
-    private IdTransaction idTransaction = new IdTransaction();
+
     /**
      * The current balance of the client.
      */
@@ -33,6 +33,14 @@ public class Client {
      */
 
     private Map<Integer, Transaction> transactions = new HashMap<>();
+
+    public Map<Integer, Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(Map<Integer, Transaction> transactions) {
+        this.transactions = transactions;
+    }
 
     /**
      * Get the current balance of the client.
@@ -95,51 +103,6 @@ public class Client {
      * @throws BigDebitException If the withdrawal amount exceeds the current balance of the client.
      * @throws UniqueIdException If the transaction ID is not unique.
      */
-    public void debit(double withdrow) throws BigDebitException, UniqueIdException {
 
-        if (balance - withdrow < 0) {
-            throw new BigDebitException("Not enough funds for withdrawal");
-        }
-        balance = balance - withdrow;
-        int uId = idTransaction.getId();
-
-        for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
-            if (uId == entry.getKey()) {
-                throw new UniqueIdException("The passed ID is not unique");
-            }
-        }
-        transactions.put(uId, new Transaction(TypeTransaction.DEBIT, withdrow));
-        idTransaction.setId(idTransaction.getId() + 1);
-        System.out.println(transactions.get(uId));
-    }
-
-    /**
-     * Perform a credit transaction, adding funds to the client's balance.
-     *
-     * @param credit The amount of credit to add to the balance.
-     * @throws UniqueIdException If the transaction ID is not unique.
-     */
-    public void credit(double credit) throws UniqueIdException {
-        balance = balance + credit;
-        int uId = idTransaction.getId();
-
-        for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
-            if (uId == entry.getKey()) {
-                throw new UniqueIdException("The passed ID is not unique");
-            }
-        }
-        transactions.put(uId, new Transaction(TypeTransaction.CREDIT, credit));
-        idTransaction.setId(idTransaction.getId() + 1);
-        System.out.println(transactions.get(uId));
-    }
-
-    /**
-     * Display the transaction history of the client.
-     */
-    public void history() {
-        for (Map.Entry<Integer, Transaction> entry : transactions.entrySet()) {
-            System.out.println(entry.getValue());
-        }
-    }
 }
 

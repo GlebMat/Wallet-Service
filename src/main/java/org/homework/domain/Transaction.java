@@ -11,18 +11,18 @@ public class Transaction {
     /**
      * The transfer amount in the financial transaction.
      */
-    private double sum;
+    private double amount;
 
     /**
      * Constructor for creating a `Transaction` object with the specified transaction type and transfer amount.
      *
      * @param typeTransaction The type of financial transaction (debit or credit).
-     * @param sum             The transfer amount in the financial transaction.
+     * @param amount             The transfer amount in the financial transaction.
      */
-    public Transaction(TypeTransaction typeTransaction, double sum) {
+    public Transaction(TypeTransaction typeTransaction, double amount) {
 
         this.typeTransaction = typeTransaction;
-        this.sum = sum;
+        this.amount = amount;
     }
 
     /**
@@ -33,6 +33,6 @@ public class Transaction {
     @Override
     public String toString() {
         return "Transaction type - " + typeTransaction +
-                ", transfer amount " + sum;
+                ", transfer amount " + amount;
     }
 }

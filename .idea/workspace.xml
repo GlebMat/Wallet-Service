@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="перевел javadoc на английский язык. Поменял неправельные название классов">
+    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="fix README.md text error">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/TransactionDataBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/TransactionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/ClientsDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/ClientsDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +28,20 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="GlebMat" />
+        <option name="repository" value="Wallet-Service" />
+      </RepoCoordinatesHolder>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -32,20 +52,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "W:/GlebJavaVideo/javaSpringHomeWork/Wallet-Service",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;W:/GlebJavaVideo/javaSpringHomeWork/Wallet-Service&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.file-colors&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service" />
@@ -107,10 +127,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Input" />
-        <item itemvalue="JUnit.ClientTest" />
-        <item itemvalue="JUnit.ClientTest.balanceLessThenDebet" />
         <item itemvalue="JUnit.ClientTest.increaseBalanceThroughCredit" />
         <item itemvalue="JUnit.ClientTest.decreasedBalanceThroughDebet" />
+        <item itemvalue="JUnit.ClientTest.balanceLessThenDebet" />
+        <item itemvalue="JUnit.ClientTest" />
       </list>
     </recent_temporary>
   </component>
@@ -126,7 +146,9 @@
       <workItem from="1696911990767" duration="22940000" />
       <workItem from="1696940014990" duration="800000" />
       <workItem from="1696940968006" duration="287000" />
-      <workItem from="1696941269929" duration="11871000" />
+      <workItem from="1696941269929" duration="15234000" />
+      <workItem from="1697003048536" duration="10173000" />
+      <workItem from="1697180444809" duration="2361000" />
     </task>
     <task id="LOCAL-00001" summary="bugfix">
       <created>1696953623276</created>
@@ -142,7 +164,28 @@
       <option name="project" value="LOCAL" />
       <updated>1696954789915</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix errors package name">
+      <created>1696955326755</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696955326755</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add LICENSE file">
+      <created>1696957777155</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696957777155</updated>
+    </task>
+    <task id="LOCAL-00005" summary="change project jdk version">
+      <created>1697015979442</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697015979442</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +205,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bugfix" />
     <MESSAGE value="перевел javadoc на английский язык. Поменял неправельные название классов" />
-    <option name="LAST_COMMIT_MESSAGE" value="перевел javadoc на английский язык. Поменял неправельные название классов" />
+    <MESSAGE value="fix errors package name" />
+    <MESSAGE value="add LICENSE file" />
+    <MESSAGE value="change project jdk version" />
+    <option name="LAST_COMMIT_MESSAGE" value="change project jdk version" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
