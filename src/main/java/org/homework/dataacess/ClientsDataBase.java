@@ -13,7 +13,7 @@ public class ClientsDataBase {
     /**
      * The storage of clients, where the key is the username, and the value is the corresponding client object.
      */
-    Map<String, Client> clients = new HashMap<>();
+    private Map<String, Client> clients = new HashMap<>();
 
     /**
      * Get the current storage of clients.

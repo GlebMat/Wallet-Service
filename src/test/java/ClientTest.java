@@ -1,3 +1,4 @@
+import org.homework.dataacess.TransactionService;
 import org.homework.domain.Client;
 import org.homework.exception.BigDebitException;
 import org.homework.exception.UniqueIdException;
@@ -26,14 +27,10 @@ public class ClientTest {
      * Checks whether the balance decreases after a debit transaction.
      */
     @Test()
-    public void decreasedBalanceThroughDebit() {
-        try {
-            c1.debit(10);
-        } catch (BigDebitException e) {
-            System.out.println(e.getMessage());
-        } catch (UniqueIdException e) {
-            System.out.println(e.getMessage());
-        }
+    public void decreasedBalanceThroughDebit() throws BigDebitException, UniqueIdException {
+
+        TransactionService.debit(10, c1);
+
         Assert.assertEquals(90, c1.getBalance(), EPS);
     }
 
@@ -41,12 +38,10 @@ public class ClientTest {
      * Checks whether the balance increases after a credit transaction.
      */
     @Test
-    public void increaseBalanceThroughCredit() {
-        try {
-            c1.credit(100);
-        } catch (UniqueIdException e) {
-            System.out.println(e.getMessage());
-        }
+    public void increaseBalanceThroughCredit() throws UniqueIdException {
+
+        TransactionService.credit(100, c1);
+
         Assert.assertEquals(200, c1.getBalance(), EPS);
     }
 
@@ -58,6 +53,6 @@ public class ClientTest {
      */
     @Test(expected = BigDebitException.class)
     public void balanceLessThenDebit() throws UniqueIdException, BigDebitException {
-        c1.debit(1000);
+        TransactionService.debit(1000, c1);
     }
 }

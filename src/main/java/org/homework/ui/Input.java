@@ -1,6 +1,7 @@
 package org.homework.ui;
 
 import org.homework.dataacess.ClientsDataBase;
+import org.homework.dataacess.TransactionService;
 import org.homework.domain.Client;
 import org.homework.exception.BigDebitException;
 import org.homework.exception.UniqueIdException;
@@ -107,7 +108,7 @@ public class Input {
                     System.out.println("Enter the amount of the debit");
                     int s2 = scanner.nextInt();
                     try {
-                        client.debit(s2);
+                        TransactionService.debit(s2,client);
                     } catch (BigDebitException e) {
                         System.out.println(e.getMessage());
                     } catch (UniqueIdException e) {
@@ -119,7 +120,7 @@ public class Input {
                     System.out.println("Enter the amount of credit");
                     int s3 = scanner.nextInt();
                     try {
-                        client.credit(s3);
+                        TransactionService.credit(s3,client);
                     } catch (UniqueIdException e) {
                         System.out.println(e.getMessage());
                     }
@@ -129,7 +130,7 @@ public class Input {
                     break;
 
                 case 4:
-                    client.history();
+                    TransactionService.history(client);
                     break;
                 case 0:
                     shouldLogout = false;
