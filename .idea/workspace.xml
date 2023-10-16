@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="fix README.md text error">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/TransactionDataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/ClientsDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/ClientsDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="fix README.md text error" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
