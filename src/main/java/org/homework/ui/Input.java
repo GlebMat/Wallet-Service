@@ -195,6 +195,9 @@ public class Input {
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
+                    if (client != null){
+                        sessions(client, checkLogin, scanner);
+                    }
                     break;
                 case 0:
                     shouldExit = false;
