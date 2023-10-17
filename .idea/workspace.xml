@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="commit change 2">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/connectiondb/ConnectionDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/dao/ClientDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/dao/LiquibaseMigration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/service/admin/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/001-create-table.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/002-create-table.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changelog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/TransactionDataBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dataacess/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
+    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="Подключил бд. Настроил регистрацию и логин(логин не работает), перестала и база работать">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changelog.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +159,7 @@
       <workItem from="1697003048536" duration="10173000" />
       <workItem from="1697180444809" duration="2361000" />
       <workItem from="1697456704380" duration="12268000" />
-      <workItem from="1697538636689" duration="34532000" />
+      <workItem from="1697538636689" duration="34875000" />
     </task>
     <task id="LOCAL-00001" summary="bugfix">
       <created>1696953623276</created>
@@ -210,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697015979442</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Подключил бд. Настроил регистрацию и логин(логин не работает), перестала и база работать">
+      <created>1697577385790</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697577385790</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +226,8 @@
     <MESSAGE value="fix errors package name" />
     <MESSAGE value="add LICENSE file" />
     <MESSAGE value="change project jdk version" />
-    <option name="LAST_COMMIT_MESSAGE" value="change project jdk version" />
+    <MESSAGE value="Подключил бд. Настроил регистрацию и логин(логин не работает), перестала и база работать" />
+    <option name="LAST_COMMIT_MESSAGE" value="Подключил бд. Настроил регистрацию и логин(логин не работает), перестала и база работать" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
