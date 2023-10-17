@@ -1,11 +1,13 @@
-package org.homework.dataacess;
+package org.homework.service;
 
+import org.homework.dataacess.IdTransaction;
 import org.homework.domain.Client;
 import org.homework.domain.Transaction;
 import org.homework.domain.TypeTransaction;
 import org.homework.exception.BigDebitException;
 import org.homework.exception.UniqueIdException;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,18 +16,18 @@ public class TransactionService {
     private static Map<Integer, Transaction> transactions = new HashMap<>();
 
 
-    public static void debit(double withdrow, Client client) throws BigDebitException, UniqueIdException {
+    public static void debit(double withdraw, Client client) throws BigDebitException, UniqueIdException {
 
-        if (client.getBalance() - withdrow < 0) {
+        if ((client.getBalance().subtract(BigDecimal.valueOf(withdraw)).compareTo(BigDecimal.ZERO)) < 0) {
             throw new BigDebitException("Not enough funds for withdrawal");
         }
-        client.setBalance(client.getBalance() - withdrow);
+        client.setBalance(client.getBalance().subtract(BigDecimal.valueOf(withdraw)));
         int uId = idTransaction.getId();
 
         if (transactions.get(uId) != null) {
             throw new UniqueIdException("The passed ID is not unique");
         }
-        Transaction transaction = new Transaction(TypeTransaction.DEBIT, withdrow);
+        Transaction transaction = new Transaction(TypeTransaction.DEBIT, withdraw);
         transactions.put(uId, transaction);
         client.getTransactions().put(uId, transaction);
         idTransaction.setId(idTransaction.getId() + 1);
@@ -43,7 +45,7 @@ public class TransactionService {
         if (transactions.get(uId) != null) {
             throw new UniqueIdException("The passed ID is not unique");
         }
-        client.setBalance(client.getBalance() + credit);
+        client.setBalance(client.getBalance().add(BigDecimal.valueOf(credit)));
         Transaction transaction = new Transaction(TypeTransaction.CREDIT, credit);
         transactions.put(uId, transaction);
         client.getTransactions().put(uId, transaction);

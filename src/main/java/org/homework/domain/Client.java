@@ -4,6 +4,7 @@ import org.homework.dataacess.IdTransaction;
 import org.homework.exception.BigDebitException;
 import org.homework.exception.UniqueIdException;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -11,6 +12,7 @@ import java.util.*;
  * Each client has a unique username and password and can perform debit and credit transactions to change their balance.
  */
 public class Client {
+
     /**
      * The username of the client.
      */
@@ -23,31 +25,23 @@ public class Client {
     /**
      * The unique transaction identifier of the client.
      */
-
+    private IdTransaction idTransaction = new IdTransaction();
     /**
      * The current balance of the client.
      */
-    private double balance;
+    private BigDecimal balance;
     /**
      * The list of client transactions.
      */
 
     private Map<Integer, Transaction> transactions = new HashMap<>();
 
-    public Map<Integer, Transaction> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(Map<Integer, Transaction> transactions) {
-        this.transactions = transactions;
-    }
-
     /**
      * Get the current balance of the client.
      *
      * @return The current balance of the client.
      */
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
@@ -56,7 +50,7 @@ public class Client {
      *
      * @param balance The new balance of the client.
      */
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
@@ -94,6 +88,9 @@ public class Client {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+    public Map<Integer, Transaction> getTransactions() {
+        return transactions;
     }
 
     /**

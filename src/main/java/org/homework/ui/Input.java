@@ -1,13 +1,22 @@
 package org.homework.ui;
 
+import org.homework.connectiondb.ConnectionDB;
+import org.homework.dao.ClientDAO;
+import org.homework.dao.LiquibaseMigration;
 import org.homework.dataacess.ClientsDataBase;
-import org.homework.dataacess.TransactionService;
+import org.homework.service.TransactionService;
 import org.homework.domain.Client;
 import org.homework.exception.BigDebitException;
 import org.homework.exception.UniqueIdException;
 
 
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
+
+import static org.homework.dao.ClientDAO.printStudents;
+import static org.homework.dao.ClientDAO.retrieveStudents;
 
 /**
  * The `Input` class represents a console application for managing player credit/debit transactions.
@@ -21,6 +30,7 @@ public class Input {
      * @param args Command-line arguments (not used).
      */
     public static void main(String[] args) {
+        LiquibaseMigration.runMigrations();
         Scanner scanner = new Scanner(System.in);
         ClientsDataBase clientsDataBase = new ClientsDataBase();
         Client client = new Client();
@@ -56,7 +66,14 @@ public class Input {
                 flag2 = false;
             }
         }
-        clientsDataBase.setClients(clientName, clientPass);
+
+        try {
+            ClientDAO.insertRecord(ConnectionDB.getConnection(), clientName, clientPass);
+            ResultSet resultSet = retrieveStudents(ConnectionDB.getConnection());
+            printStudents(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Registration was successful!");
     }
 
@@ -69,19 +86,18 @@ public class Input {
      * @param clientsDataBase A ClientsDataBase object for checking player credentials.
      * @return A Client object representing the authenticated player, or null in case of an error.
      */
-    public static Client login(Scanner scanner, ClientsDataBase clientsDataBase) {
+    public static Client login(Scanner scanner) throws SQLException {
         String clientName = scanner.nextLine();
         String clientPass = scanner.nextLine();
-        Client activeClient = clientsDataBase.getClients().get(clientName);
-
-        if (clientPass.equals(activeClient.getPassword())) {
+        Client activeClient = ClientDAO.serchClient(clientName, clientPass);
+        if (activeClient != null && clientPass.equals(activeClient.getPassword())) {
             System.out.println("Authorization was successful!");
             return activeClient;
+        } else {
+            System.out.println("Неправильно введен username или пароль");
+            return null;
         }
-        if (activeClient == null || activeClient.getPassword().equals(clientPass)) {
-            System.out.println("The user with such username or password does not exist");
-        }
-        return activeClient;
+
     }
 
     /**
@@ -106,9 +122,10 @@ public class Input {
 
                 case 1:
                     System.out.println("Enter the amount of the debit");
-                    int s2 = scanner.nextInt();
+                    double s2 = scanner.nextDouble();
+
                     try {
-                        TransactionService.debit(s2,client);
+                        TransactionService.debit(s2, client);
                     } catch (BigDebitException e) {
                         System.out.println(e.getMessage());
                     } catch (UniqueIdException e) {
@@ -118,9 +135,9 @@ public class Input {
 
                 case 2:
                     System.out.println("Enter the amount of credit");
-                    int s3 = scanner.nextInt();
+                    double s3 = scanner.nextInt();
                     try {
-                        TransactionService.credit(s3,client);
+                        TransactionService.credit(s3, client);
                     } catch (UniqueIdException e) {
                         System.out.println(e.getMessage());
                     }
@@ -173,9 +190,10 @@ public class Input {
                 case 2:
                     System.out.println("To log in to your account, enter username and password");
 
-                    client = login(scanner, clientsDataBase);
-                    if (client != null) {
-                        sessions(client, checkLogin, scanner);
+                    try {
+                        client = login(scanner);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
                     }
                     break;
                 case 0:

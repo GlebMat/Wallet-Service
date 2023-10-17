@@ -1,0 +1,37 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+    <changeSet  author="matlakhov"  id="createSequence-example">
+        <createSequence  cacheSize="371717"
+                         cycle="true"
+                         dataType="int"
+                         incrementBy="2"
+                         maxValue="1000"
+                         minValue="10"
+                         schemaName="private_scheme"
+                         sequenceName="seq_id"
+                         startValue="1"/>
+    </changeSet>
+
+    <changeSet id="2" author="matlakhov">
+        <createTable tableName="transactions">
+            <!-- Остальные настройки таблицы -->
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+
+            </column>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="NUMERIC(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>
