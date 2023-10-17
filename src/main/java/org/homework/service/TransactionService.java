@@ -1,5 +1,6 @@
 package org.homework.service;
 
+import org.homework.connectiondb.ConnectionDB;
 import org.homework.dataacess.IdTransaction;
 import org.homework.domain.Client;
 import org.homework.domain.Transaction;
@@ -8,6 +9,9 @@ import org.homework.exception.BigDebitException;
 import org.homework.exception.UniqueIdException;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,16 +26,30 @@ public class TransactionService {
             throw new BigDebitException("Not enough funds for withdrawal");
         }
         client.setBalance(client.getBalance().subtract(BigDecimal.valueOf(withdraw)));
-        int uId = idTransaction.getId();
-
-        if (transactions.get(uId) != null) {
-            throw new UniqueIdException("The passed ID is not unique");
+        System.out.println(client.getBalance() + " ///////////");
+        String changeBalanceSQL = "UPDATE private_scheme.clients SET balance = ? WHERE username = ?";
+        try {
+            PreparedStatement updateStatement = ConnectionDB.getConnection().prepareStatement(changeBalanceSQL);
+            updateStatement.setBigDecimal(1, client.getBalance());
+            updateStatement.setString(2, client.getUsername());
+            updateStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        Transaction transaction = new Transaction(TypeTransaction.DEBIT, withdraw);
-        transactions.put(uId, transaction);
-        client.getTransactions().put(uId, transaction);
-        idTransaction.setId(idTransaction.getId() + 1);
-        System.out.println(transactions.get(uId));
+        // Проверки и исключения оставляем без изменений.
+
+        // Добавляем транзакцию в базу данных.
+        String insertTransactionSQL = "INSERT INTO private_scheme.transactions (type, amount, username) VALUES (?, ?, ?)";
+        try (Connection connection = ConnectionDB.getConnection();
+             PreparedStatement insertStatement = connection.prepareStatement(insertTransactionSQL)) {
+            insertStatement.setString(1, TypeTransaction.DEBIT.name());
+            insertStatement.setDouble(2, withdraw);
+            insertStatement.setString(3, client.getUsername());
+            insertStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     /**
@@ -61,4 +79,6 @@ public class TransactionService {
             System.out.println(entry.getValue());
         }
     }
+
+
 }
