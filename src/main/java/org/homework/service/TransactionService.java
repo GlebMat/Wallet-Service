@@ -22,7 +22,7 @@ public class TransactionService {
             throw new BigDebitException("Not enough funds for withdrawal");
         }
         client.setBalance(client.getBalance().subtract(withdraw));
-        System.out.println(client.getBalance() + " ///////////");
+
         String changeBalanceSQL = "UPDATE private_scheme.clients SET balance = ? WHERE username = ?";
         try {
             PreparedStatement updateStatement = connectionDB.getConnection().prepareStatement(changeBalanceSQL);

@@ -25,7 +25,7 @@ public class LiquibaseMigration {
             liquibase.update();
             System.out.println("Миграции успешно выполнены!");
         } catch (Exception e) {
-            System.out.println("Подключение не удалось!!!!!!!!!");
+            System.out.println("Подключение не удалось!");
             e.printStackTrace();
         }
     }

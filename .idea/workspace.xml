@@ -4,21 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="исправил методы credit и history, теперь они работают с БД. Удалил не нужные классы">
-      <change afterPath="$PROJECT_DIR$/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/connectiondb/DatabaseConfig.java" afterDir="false" />
+    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="добавил класс DatabaseConfig убрал жесткость в коде">
+      <change afterPath="$PROJECT_DIR$/src/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ClientDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/connectiondb/ConnectionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/connectiondb/ConnectionDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dao/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/dao/ClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dao/LiquibaseMigration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/dao/LiquibaseMigration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/TypeTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/TypeTransaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/exception/BigDebitException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/exception/BigDebitException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/exception/UniqueIdException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/exception/UniqueIdException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/service/admin/Admin.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/001-create-table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/001-create-table.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/002-create-table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/002-create-table.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +86,7 @@
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service\src\main\resources\db" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Input">
+  <component name="RunManager" selected="JUnit.ClientDAOTest.testClientInsertion">
     <configuration name="ClientDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.homework.dao.ClientDAO" />
       <module name="Wallet-Service" />
@@ -128,21 +126,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientTest.decreasedBalanceThroughDebet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientDAOTest.testClientInsertion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Wallet-Service" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ClientTest" />
-      <option name="METHOD_NAME" value="decreasedBalanceThroughDebet" />
+      <option name="MAIN_CLASS_NAME" value="ClientDAOTest" />
+      <option name="METHOD_NAME" value="testClientInsertion" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientTest.increaseBalanceThroughCredit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientDAOTest.testDebitTransaction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Wallet-Service" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ClientTest" />
-      <option name="METHOD_NAME" value="increaseBalanceThroughCredit" />
+      <option name="MAIN_CLASS_NAME" value="ClientDAOTest" />
+      <option name="METHOD_NAME" value="testDebitTransaction" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -150,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClientDAOTest.testClientInsertion" />
         <item itemvalue="Application.Input" />
+        <item itemvalue="JUnit.ClientDAOTest.testDebitTransaction" />
         <item itemvalue="Application.ClientDAO" />
         <item itemvalue="Application.LiqubaseWS" />
-        <item itemvalue="JUnit.ClientTest.increaseBalanceThroughCredit" />
-        <item itemvalue="JUnit.ClientTest.decreasedBalanceThroughDebet" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +173,9 @@
       <workItem from="1697180444809" duration="2361000" />
       <workItem from="1697456704380" duration="12268000" />
       <workItem from="1697538636689" duration="38524000" />
-      <workItem from="1697615045424" duration="9092000" />
+      <workItem from="1697615045424" duration="12969000" />
+      <workItem from="1697632188198" duration="310000" />
+      <workItem from="1697635186305" duration="3667000" />
     </task>
     <task id="LOCAL-00001" summary="bugfix">
       <created>1696953623276</created>
@@ -254,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697616749879</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="добавил класс DatabaseConfig убрал жесткость в коде">
+      <created>1697624347629</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1697624347629</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +289,8 @@
     <MESSAGE value="debit переписал чтоб менял значения в таблице clients" />
     <MESSAGE value="debit полностью доделал" />
     <MESSAGE value="исправил методы credit и history, теперь они работают с БД. Удалил не нужные классы" />
-    <option name="LAST_COMMIT_MESSAGE" value="исправил методы credit и history, теперь они работают с БД. Удалил не нужные классы" />
+    <MESSAGE value="добавил класс DatabaseConfig убрал жесткость в коде" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил класс DatabaseConfig убрал жесткость в коде" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

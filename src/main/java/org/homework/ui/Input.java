@@ -53,8 +53,6 @@ public class Input {
 
         try {
             ClientDAO.insertRecord(connectionDB.getConnection(), clientName, clientPass);
-            ResultSet resultSet = retrieveClients(connectionDB.getConnection());
-            printClients(resultSet);
             System.out.println("Registration was successful!");
         } catch (SQLException e) {
             if (e.getSQLState().equals("23505")) {
