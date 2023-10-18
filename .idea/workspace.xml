@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="добавил класс DatabaseConfig убрал жесткость в коде">
-      <change afterPath="$PROJECT_DIR$/src/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ClientDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="Docker Descktop теперь держит бд">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/001-create-scheme.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dao/LiquibaseMigration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/dao/LiquibaseMigration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/001-create-table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/001-create-table.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/002-create-table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/002-create-table.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/changelog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/changelog.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,13 +74,14 @@
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service\src\main\resources\db\db\changelog" />
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service" />
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service\src" />
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service\src\main\resources\db\changelog" />
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service\src\main\resources\db" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClientDAOTest.testClientInsertion">
+  <component name="RunManager" selected="Application.Input">
     <configuration name="ClientDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.homework.dao.ClientDAO" />
       <module name="Wallet-Service" />
@@ -148,8 +143,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClientDAOTest.testClientInsertion" />
         <item itemvalue="Application.Input" />
+        <item itemvalue="JUnit.ClientDAOTest.testClientInsertion" />
         <item itemvalue="JUnit.ClientDAOTest.testDebitTransaction" />
         <item itemvalue="Application.ClientDAO" />
         <item itemvalue="Application.LiqubaseWS" />
@@ -175,7 +170,7 @@
       <workItem from="1697538636689" duration="38524000" />
       <workItem from="1697615045424" duration="12969000" />
       <workItem from="1697632188198" duration="310000" />
-      <workItem from="1697635186305" duration="3667000" />
+      <workItem from="1697635186305" duration="5563000" />
     </task>
     <task id="LOCAL-00001" summary="bugfix">
       <created>1696953623276</created>
@@ -261,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697624347629</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Docker Descktop теперь держит бд">
+      <created>1697638947771</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1697638947771</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +292,8 @@
     <MESSAGE value="debit полностью доделал" />
     <MESSAGE value="исправил методы credit и history, теперь они работают с БД. Удалил не нужные классы" />
     <MESSAGE value="добавил класс DatabaseConfig убрал жесткость в коде" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил класс DatabaseConfig убрал жесткость в коде" />
+    <MESSAGE value="Docker Descktop теперь держит бд" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docker Descktop теперь держит бд" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

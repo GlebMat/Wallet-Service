@@ -4,8 +4,9 @@ services:
     image: postgres:15.4
     container_name: my_postgres
     environment:
-      POSTGRES_USER: mydb
+      POSTGRES_USER: wallet
       POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: my_wallet
+      POSTGRES_DB: mydb
+      POSTGRES_INITDB_ARGS: "--auth-host=md5 --auth-local=md5 -U wallet"
     ports:
       - "5432:5432"
