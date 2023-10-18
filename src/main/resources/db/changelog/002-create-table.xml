@@ -9,7 +9,7 @@
             <column name="id" type="BIGINT" autoIncrement="true" >
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="type_transaction" type="VARCHAR(255)" >
+            <column name="type" type="VARCHAR(255)" >
                 <constraints nullable="false"/>
             </column>
             <column name="amount" type="DECIMAL">
