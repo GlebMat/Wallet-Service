@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="debit полностью доделал">
+    <list default="true" id="b14b628b-7133-4d9c-a1f4-bca381127bce" name="Changes" comment="исправил методы credit и history, теперь они работают с БД. Удалил не нужные классы">
+      <change afterPath="$PROJECT_DIR$/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/homework/connectiondb/DatabaseConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/connectiondb/ConnectionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/connectiondb/ConnectionDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dao/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/dao/ClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/dao/LiquibaseMigration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/dao/LiquibaseMigration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/domain/TypeTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/domain/TypeTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/exception/BigDebitException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/exception/BigDebitException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/exception/UniqueIdException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/exception/UniqueIdException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/service/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/service/admin/Admin.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/homework/ui/Input.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +82,8 @@
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service" />
+      <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service\src" />
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service\src\main\resources\db\changelog" />
       <recent name="W:\GlebJavaVideo\javaSpringHomeWork\Wallet-Service\src\main\resources\db" />
     </key>
@@ -163,7 +175,7 @@
       <workItem from="1697180444809" duration="2361000" />
       <workItem from="1697456704380" duration="12268000" />
       <workItem from="1697538636689" duration="38524000" />
-      <workItem from="1697615045424" duration="1332000" />
+      <workItem from="1697615045424" duration="9092000" />
     </task>
     <task id="LOCAL-00001" summary="bugfix">
       <created>1696953623276</created>
@@ -235,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697581170874</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="исправил методы credit и history, теперь они работают с БД. Удалил не нужные классы">
+      <created>1697616749879</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697616749879</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +281,8 @@
     <MESSAGE value="Починил логин" />
     <MESSAGE value="debit переписал чтоб менял значения в таблице clients" />
     <MESSAGE value="debit полностью доделал" />
-    <option name="LAST_COMMIT_MESSAGE" value="debit полностью доделал" />
+    <MESSAGE value="исправил методы credit и history, теперь они работают с БД. Удалил не нужные классы" />
+    <option name="LAST_COMMIT_MESSAGE" value="исправил методы credit и history, теперь они работают с БД. Удалил не нужные классы" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

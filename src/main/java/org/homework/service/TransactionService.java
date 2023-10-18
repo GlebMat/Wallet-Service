@@ -16,7 +16,7 @@ public class TransactionService {
 
 
 
-    public static void debit(BigDecimal withdraw, Client client) throws BigDebitException, UniqueIdException {
+    public static void debit(BigDecimal withdraw, Client client, ConnectionDB connectionDB) throws BigDebitException, UniqueIdException {
 
         if ((client.getBalance().subtract(withdraw).compareTo(BigDecimal.ZERO)) < 0) {
             throw new BigDebitException("Not enough funds for withdrawal");
@@ -25,7 +25,7 @@ public class TransactionService {
         System.out.println(client.getBalance() + " ///////////");
         String changeBalanceSQL = "UPDATE private_scheme.clients SET balance = ? WHERE username = ?";
         try {
-            PreparedStatement updateStatement = ConnectionDB.getConnection().prepareStatement(changeBalanceSQL);
+            PreparedStatement updateStatement = connectionDB.getConnection().prepareStatement(changeBalanceSQL);
             updateStatement.setBigDecimal(1, client.getBalance());
             updateStatement.setString(2, client.getUsername());
             updateStatement.executeUpdate();
@@ -36,7 +36,7 @@ public class TransactionService {
 
         // Добавляем транзакцию в базу данных.
         String insertTransactionSQL = "INSERT INTO private_scheme.transactions (type, amount, username) VALUES (?, ?, ?)";
-        try (Connection connection = ConnectionDB.getConnection();
+        try (Connection connection = connectionDB.getConnection();
              PreparedStatement insertStatement = connection.prepareStatement(insertTransactionSQL)) {
             insertStatement.setString(1, TypeTransaction.DEBIT.name());
             insertStatement.setBigDecimal(2, withdraw);
@@ -48,20 +48,14 @@ public class TransactionService {
 
     }
 
-    /**
-     * Perform a credit transaction, adding funds to the client's balance.
-     *
-     * @param credit The amount of credit to add to the balance.
-     * @throws UniqueIdException If the transaction ID is not unique.
-     */
-    public static void credit(BigDecimal credit, Client client) throws UniqueIdException {
+    public static void credit(BigDecimal credit, Client client, ConnectionDB connectionDB) throws UniqueIdException {
         // Обновляем баланс клиента
         BigDecimal newBalance = client.getBalance().add(credit);
         client.setBalance(newBalance);
 
         // Обновляем баланс клиента в базе данных
         String changeBalanceSQL = "UPDATE private_scheme.clients SET balance = ? WHERE username = ?";
-        try (Connection connection = ConnectionDB.getConnection();
+        try (Connection connection = connectionDB.getConnection();
              PreparedStatement updateStatement = connection.prepareStatement(changeBalanceSQL)) {
             updateStatement.setBigDecimal(1, newBalance);
             updateStatement.setString(2, client.getUsername());
@@ -72,7 +66,7 @@ public class TransactionService {
 
         // Создаем и сохраняем транзакцию в базе данных
         String insertTransactionSQL = "INSERT INTO private_scheme.transactions (type, amount, username) VALUES (?, ?, ?)";
-        try (Connection connection = ConnectionDB.getConnection();
+        try (Connection connection = connectionDB.getConnection();
              PreparedStatement insertStatement = connection.prepareStatement(insertTransactionSQL)) {
             insertStatement.setString(1, TypeTransaction.CREDIT.name());
             insertStatement.setBigDecimal(2, credit);
@@ -86,12 +80,9 @@ public class TransactionService {
 
     }
 
-    /**
-     * Display the transaction history of the client.
-     */
-    public static void history(Client client) {
+    public static void history(Client client, ConnectionDB connectionDB) {
         String selectTransactionSQL = "SELECT * FROM private_scheme.transactions WHERE username = ? ORDER BY username, id";
-        try (Connection connection = ConnectionDB.getConnection();
+        try (Connection connection = connectionDB.getConnection();
              PreparedStatement selectStatement = connection.prepareStatement(selectTransactionSQL)) {
             selectStatement.setString(1, client.getUsername());
             ResultSet resultSet = selectStatement.executeQuery();
@@ -107,6 +98,4 @@ public class TransactionService {
             throw new RuntimeException(e);
         }
     }
-
-
 }
