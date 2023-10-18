@@ -1,6 +1,5 @@
 package org.homework.domain;
 
-import org.homework.dataacess.IdTransaction;
 import org.homework.exception.BigDebitException;
 import org.homework.exception.UniqueIdException;
 

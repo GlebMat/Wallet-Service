@@ -3,7 +3,6 @@ package org.homework.ui;
 import org.homework.connectiondb.ConnectionDB;
 import org.homework.dao.ClientDAO;
 import org.homework.dao.LiquibaseMigration;
-import org.homework.dataacess.ClientsDataBase;
 import org.homework.service.TransactionService;
 import org.homework.domain.Client;
 import org.homework.exception.BigDebitException;
@@ -71,10 +70,15 @@ public class Input {
             ClientDAO.insertRecord(ConnectionDB.getConnection(), clientName, clientPass);
             ResultSet resultSet = retrieveStudents(ConnectionDB.getConnection());
             printStudents(resultSet);
+            System.out.println("Registration was successful!");
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            if (e.getSQLState().equals("23505")) {
+                // Ошибка 23505 означает, что нарушена уникальность поля в БД (например, username).
+                System.out.println("Username is not unique. Please enter a unique username.");
+            } else {
+                throw new RuntimeException(e);
+            }
         }
-        System.out.println("Registration was successful!");
     }
 
     /**
@@ -122,7 +126,7 @@ public class Input {
 
                 case 1:
                     System.out.println("Enter the amount of the debit");
-                    double s2 = scanner.nextDouble();
+                    BigDecimal s2 = scanner.nextBigDecimal();
 
                     try {
                         TransactionService.debit(s2, client);
@@ -135,7 +139,7 @@ public class Input {
 
                 case 2:
                     System.out.println("Enter the amount of credit");
-                    double s3 = scanner.nextInt();
+                    BigDecimal s3 = scanner.nextBigDecimal();
                     try {
                         TransactionService.credit(s3, client);
                     } catch (UniqueIdException e) {

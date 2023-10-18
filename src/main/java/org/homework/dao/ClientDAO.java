@@ -14,9 +14,9 @@ public class ClientDAO {
 
     public static void main(String[] args) {
         try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
-            // createTable(connection);
+            createTable(connection);
             LiquibaseMigration.runMigrations();
-            //  insertRecord(connection);
+           // insertRecord(connection);
             ResultSet resultSet = retrieveStudents(connection);
             printStudents(resultSet);
 
