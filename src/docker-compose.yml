@@ -7,6 +7,8 @@ services:
       POSTGRES_USER: wallet
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: mydb
-      POSTGRES_INITDB_ARGS: "--auth-host=md5 --auth-local=md5 -U wallet"
+      //POSTGRES_INITDB_ARGS: "--auth-host=md5 --auth-local=md5 -U wallet"
     ports:
       - "5432:5432"
+    volumes:
+      - ./scripts/postgres:/docker-entrypoint-initdb.d/
